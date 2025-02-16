@@ -26,6 +26,7 @@ const images = [
 ];
 
 let gallery = document.querySelector(".gallery");
+let items = [];
 
 for (let image of images) {
   let item = document.createElement("li");
@@ -33,10 +34,11 @@ for (let image of images) {
   img.src = image.url;
   img.alt = image.alt;
   item.append(img);
-  gallery.append(item);
-
+  items.push(item);
   // gallery.insertAdjacentHTML(
   //   "beforeend",
   //   `<li><img src="${image.url}" alt="${image.alt}" /></li>`
   // );
 }
+
+gallery.append(...items);
