@@ -8,6 +8,7 @@ function createBoxes(amount) {
   destroyBoxes();
   let initialSize = 30;
   let colors = [];
+  let items = [];
 
   for (let i = 0; i < amount; i++) {
     let color = getRandomHexColor();
@@ -23,9 +24,11 @@ function createBoxes(amount) {
     element.style.backgroundColor = colors[i];
     element.style.width = `${initialSize}px`;
     element.style.height = `${initialSize}px`;
-    boxes.append(element);
+    items.push(element);
     initialSize += 10;
   }
+
+  boxes.append(...items);
 }
 
 function destroyBoxes() {
